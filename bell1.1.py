@@ -26,24 +26,25 @@ def on_message(cl, userdata, msg):
   
   l=0
   t=0
-  if  "Aviso" in data:
+  if  "Intervalo" in data:
+    #esta é a parte do programa fazerá o speaker do intervalo 
       while t<3:
-              
-              voz.play()
-              
-              t=t+1
-              sleep(3)
-      
-  else:
-       while l<3:
                 sino= mixer.Sound("sino.mp3")
                 sino.play()
-                
                 voz.play()
-                  
                 print("feito")
                 l=l+1
                 sleep(3)
+              
+              
+      
+  else:
+       while l<3:
+         #esta cuidará dos avisos e anúncio 
+              voz.play() 
+              t=t+1
+              sleep(3)
+                
                
       
   
