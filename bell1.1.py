@@ -1,14 +1,14 @@
-import paho.mqtt.client as mqtt 
+import paho.mqtt.client as mqtt #biblioteca para usar o protocolo mqtt no Python 
 #import bluetooth
-from gtts import gTTS
-from pygame import mixer
-from time import sleep 
+from gtts import gTTS#API para conversão do texto em áudio 
+from pygame import mixer#biblioteca para emitir son
+from time import sleep # Está é um tipo de delay no Python 
 broker="mqtt-dashboard.com"
 port=8884
 tp="bell/caf"
 id='Bell'
 
-def on_connect(cl, userdata, flags, rc, properteis) :
+def on_connect(cl, userdata, flags, rc, properteis) :#funcao que verificar a conexão ao broker 
   if rc == 0:
           print("Conectado")
          # cl.publish(tp,"conectado")
@@ -16,7 +16,7 @@ def on_connect(cl, userdata, flags, rc, properteis) :
   else:
          print(f"desconectado codigo {str(rc)}")
   
-def on_message(cl, userdata, msg):
+def on_message(cl, userdata, msg):#funcao de recepção de sms do Brooker aqui acontece toda magia 🎙️
   data=str(msg.payload.decode("utf-8"))
   print(data)
   ms=gTTS(data,lang="pt-br")  
@@ -33,8 +33,8 @@ def on_message(cl, userdata, msg):
                 sino.play()
                 voz.play()
                 print("feito")
-                l=l+1
-                sleep(3)
+                t=t+1
+                sleep(4)
               
               
       
@@ -42,8 +42,8 @@ def on_message(cl, userdata, msg):
        while l<3:
          #esta cuidará dos avisos e anúncio 
               voz.play() 
-              t=t+1
-              sleep(3)
+              l=l+1
+              sleep(4)
                 
                
       
