@@ -26,7 +26,8 @@ def on_message(cl, userdata, msg):#funcao de recepção de sms do Brooker aqui a
   
   l=0
   t=0
-  if  "Intervalo" in data:
+  pos=data.find("Intervalo")
+  if  pos==0:
     #esta é a parte do programa fazerá o speaker do intervalo 
       while t<3:
                 sino= mixer.Sound("sino.mp3")
