@@ -3,6 +3,9 @@ import paho.mqtt.client as mqtt #biblioteca para usar o protocolo mqtt no Python
 from gtts import gTTS#API para conversão do texto em áudio 
 from pygame import mixer#biblioteca para emitir son
 from time import sleep # Está é um tipo de delay no Python 
+import socket as x
+
+
 broker="mqtt-dashboard.com"
 port=8884
 tp="bell/caf"
